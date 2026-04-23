@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1029267231247",
+    "firebase_url": "https://fir-tutorials-7757b-default-rtdb.firebaseio.com",
+    "project_id": "fir-tutorials-7757b",
+    "storage_bucket": "fir-tutorials-7757b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029267231247:android:a7280999b5dc415437897a",
+        "android_client_info": {
+          "package_name": "com.nitinjiwnani.macropeek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB639U9VQEYa00DH8VPklTzMP2NJl8TI3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
