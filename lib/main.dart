@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/router/app_router.dart';
+import 'shared/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +20,7 @@ class MacroPeekApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'MacroPeek AI',
       debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
       routerConfig: router,
     );
   }
