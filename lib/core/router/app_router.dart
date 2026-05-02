@@ -35,7 +35,8 @@ final routerProvider = Provider<GoRouter>((ref) {
 
       final user = authState.asData?.value;
 
-      final isPublicRoute = location == RouteNames.splash ||
+      final isPublicRoute =
+          location == RouteNames.splash ||
           location == RouteNames.login ||
           location == RouteNames.onboarding1 ||
           location == RouteNames.onboarding2 ||
@@ -52,20 +53,62 @@ final routerProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
-      GoRoute(path: RouteNames.splash,       builder: (_, __) => const SplashScreen()),
-      GoRoute(path: RouteNames.onboarding1,  builder: (_, __) => const OnboardingScreen1()),
-      GoRoute(path: RouteNames.onboarding2,  builder: (_, __) => const OnboardingScreen2()),
-      GoRoute(path: RouteNames.onboarding3,  builder: (_, __) => const OnboardingScreen3()),
-      GoRoute(path: RouteNames.login,        builder: (_, __) => const LoginScreen()),
-      GoRoute(path: RouteNames.setupProfile, builder: (_, __) => const SetupProfileScreen()),
-      GoRoute(path: RouteNames.setupGoal,    builder: (_, __) => const SetupGoalScreen()),
-      GoRoute(path: RouteNames.setupTarget,  builder: (_, __) => const SetupTargetScreen()),
-      GoRoute(path: RouteNames.welcome,      builder: (_, __) => const WelcomeScreen()),
-      GoRoute(path: RouteNames.home,         builder: (_, __) => const HomeScreen()),
-      GoRoute(path: RouteNames.scan,         builder: (_, __) => const CameraScreen()),
-      GoRoute(path: RouteNames.scanResult,   builder: (_, __) => const ResultReviewScreen()),
-      GoRoute(path: RouteNames.manualEntry,  builder: (_, __) => const ManualEntryScreen()),
-      GoRoute(path: RouteNames.weekly,       builder: (_, __) => const WeeklySummaryScreen()),
+      GoRoute(
+        path: RouteNames.splash,
+        builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.onboarding1,
+        builder: (context, state) => const OnboardingScreen1(),
+      ),
+      GoRoute(
+        path: RouteNames.onboarding2,
+        builder: (context, state) => const OnboardingScreen2(),
+      ),
+      GoRoute(
+        path: RouteNames.onboarding3,
+        builder: (context, state) => const OnboardingScreen3(),
+      ),
+      GoRoute(
+        path: RouteNames.login,
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.setupProfile,
+        builder: (context, state) => const SetupProfileScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.setupGoal,
+        builder: (context, state) => const SetupGoalScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.setupTarget,
+        builder: (context, state) => const SetupTargetScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.welcome,
+        builder: (context, state) => const WelcomeScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.home,
+        builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.scan,
+        builder: (context, state) => const CameraScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.scanResult,
+        builder: (context, state) => const ResultReviewScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.manualEntry,
+        builder: (context, state) => const ManualEntryScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.weekly,
+        builder: (context, state) => const WeeklySummaryScreen(),
+      ),
     ],
   );
 });
