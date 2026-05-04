@@ -31,16 +31,18 @@ final routerProvider = Provider<GoRouter>((ref) {
       final authState = ref.read(authStateProvider);
       final location = state.matchedLocation;
 
-      if (authState.isLoading) return RouteNames.splash;
-
-      final user = authState.asData?.value;
-
       final isPublicRoute =
           location == RouteNames.splash ||
           location == RouteNames.login ||
           location == RouteNames.onboarding1 ||
           location == RouteNames.onboarding2 ||
           location == RouteNames.onboarding3;
+
+      if (authState.isLoading) {
+        return isPublicRoute ? null : RouteNames.splash;
+      }
+
+      final user = authState.asData?.value;
 
       if (user == null) {
         return isPublicRoute ? null : RouteNames.login;

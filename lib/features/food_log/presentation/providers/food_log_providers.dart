@@ -70,6 +70,33 @@ class FoodLogController extends AsyncNotifier<void> {
     required MealType mealType,
     DateTime? date,
   }) async {
+    await addLog(
+      foodName: foodName,
+      calories: calories,
+      protein: protein,
+      carbs: carbs,
+      fat: fat,
+      servingSize: servingSize,
+      servingUnit: servingUnit,
+      mealType: mealType,
+      source: 'manual',
+      date: date,
+    );
+  }
+
+  Future<void> addLog({
+    required String foodName,
+    required double calories,
+    required double protein,
+    required double carbs,
+    required double fat,
+    required double servingSize,
+    required String servingUnit,
+    required MealType mealType,
+    required String source,
+    DateTime? date,
+    String? imagePath,
+  }) async {
     final user = ref.read(currentUserProvider);
     if (user == null) {
       state = AsyncError<void>(
@@ -95,7 +122,8 @@ class FoodLogController extends AsyncNotifier<void> {
         servingSize: servingSize,
         servingUnit: servingUnit.trim(),
         mealType: mealType,
-        source: 'manual',
+        source: source,
+        imagePath: imagePath,
         date: logDate,
         createdAt: now,
       );
