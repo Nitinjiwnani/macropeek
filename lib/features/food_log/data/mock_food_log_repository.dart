@@ -3,53 +3,59 @@ import '../domain/entities/meal_type.dart';
 import '../domain/repositories/food_log_repository.dart';
 
 class MockFoodLogRepository implements FoodLogRepository {
-  final List<FoodLog> _logs = [
-    FoodLog(
-      id: 'log-001',
-      userId: 'mock-user-001',
-      foodName: 'Masala Oats',
-      calories: 320.0,
-      protein: 12.0,
-      carbs: 52.0,
-      fat: 6.0,
-      servingSize: 1.0,
-      servingUnit: 'bowl',
-      mealType: MealType.breakfast,
-      source: 'manual',
-      date: DateTime(2026, 4, 30),
-      createdAt: DateTime(2026, 4, 30, 8, 15),
-    ),
-    FoodLog(
-      id: 'log-002',
-      userId: 'mock-user-001',
-      foodName: 'Dal Tadka with Rice',
-      calories: 580.0,
-      protein: 22.0,
-      carbs: 95.0,
-      fat: 10.0,
-      servingSize: 1.0,
-      servingUnit: 'plate',
-      mealType: MealType.lunch,
-      source: 'api',
-      date: DateTime(2026, 4, 30),
-      createdAt: DateTime(2026, 4, 30, 13, 0),
-    ),
-    FoodLog(
-      id: 'log-003',
-      userId: 'mock-user-001',
-      foodName: 'Banana',
-      calories: 105.0,
-      protein: 1.3,
-      carbs: 27.0,
-      fat: 0.4,
-      servingSize: 1.0,
-      servingUnit: 'piece',
-      mealType: MealType.snack,
-      source: 'manual',
-      date: DateTime(2026, 4, 30),
-      createdAt: DateTime(2026, 4, 30, 16, 30),
-    ),
-  ];
+  MockFoodLogRepository() {
+    final today = DateTime.now();
+    final date = DateTime(today.year, today.month, today.day);
+    _logs.addAll(<FoodLog>[
+      FoodLog(
+        id: 'log-001',
+        userId: 'mock-user-001',
+        foodName: 'Masala Oats',
+        calories: 320.0,
+        protein: 12.0,
+        carbs: 52.0,
+        fat: 6.0,
+        servingSize: 1.0,
+        servingUnit: 'bowl',
+        mealType: MealType.breakfast,
+        source: 'manual',
+        date: date,
+        createdAt: DateTime(date.year, date.month, date.day, 8, 15),
+      ),
+      FoodLog(
+        id: 'log-002',
+        userId: 'mock-user-001',
+        foodName: 'Dal Tadka with Rice',
+        calories: 580.0,
+        protein: 22.0,
+        carbs: 95.0,
+        fat: 10.0,
+        servingSize: 1.0,
+        servingUnit: 'plate',
+        mealType: MealType.lunch,
+        source: 'api',
+        date: date,
+        createdAt: DateTime(date.year, date.month, date.day, 13),
+      ),
+      FoodLog(
+        id: 'log-003',
+        userId: 'mock-user-001',
+        foodName: 'Banana',
+        calories: 105.0,
+        protein: 1.3,
+        carbs: 27.0,
+        fat: 0.4,
+        servingSize: 1.0,
+        servingUnit: 'piece',
+        mealType: MealType.snack,
+        source: 'manual',
+        date: date,
+        createdAt: DateTime(date.year, date.month, date.day, 16, 30),
+      ),
+    ]);
+  }
+
+  final List<FoodLog> _logs = <FoodLog>[];
 
   @override
   Future<void> addFoodLog(FoodLog log) async {

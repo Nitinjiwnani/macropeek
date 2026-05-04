@@ -5,10 +5,11 @@ import '../domain/repositories/dashboard_repository.dart';
 class MockDashboardRepository implements DashboardRepository {
   static const double _calorieTarget = 2356.0;
 
-  // Matches the 3 mock food logs for April 30: 320 + 580 + 105 = 1005 kcal
   static DailySummary _summaryForDate(DateTime date) {
     final midnight = DateTime(date.year, date.month, date.day);
-    final isToday = midnight == DateTime(2026, 4, 30);
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final isToday = midnight == today;
     return DailySummary(
       date: midnight,
       caloriesConsumed: isToday ? 1005.0 : 0.0,
